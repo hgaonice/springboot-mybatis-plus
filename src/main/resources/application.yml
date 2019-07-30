@@ -48,6 +48,8 @@ spring:
       #监控统计用的filter:stat 日志用的filter:log4j 防御SQL注入的filter:wall
       filters: stat
 
+  redis:
+    host: 94.191.23.136
 
 #mybatis
 mybatis-plus:
@@ -84,3 +86,4 @@ logging:
     root: info
     com.gaoh.mybatisplus.mapper: debug
   file: Log/${spring.application.name}.log
+
