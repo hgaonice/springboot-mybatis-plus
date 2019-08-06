@@ -1,9 +1,9 @@
 package com.gaoh.mybatisplus.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.gaoh.test.entity.UserRole;
-import com.gaoh.test.mapper.UserRoleMapper;
-import com.gaoh.test.service.IUserRoleService;
+import com.gaoh.mybatisplus.entity.UserRoleEntity;
+import com.gaoh.mybatisplus.mapper.UserRoleMapper;
+import com.gaoh.mybatisplus.service.IUserRoleService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2019-08-06
  */
 @Service
-public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRole> implements IUserRoleService {
+public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRoleEntity> implements IUserRoleService {
 
 }

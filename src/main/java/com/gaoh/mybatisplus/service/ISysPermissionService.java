@@ -1,7 +1,7 @@
 package com.gaoh.mybatisplus.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.gaoh.test.entity.SysPermission;
+import com.gaoh.mybatisplus.entity.SysPermissionEntity;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.gaoh.test.entity.SysPermission;
  * @author gaoh
  * @since 2019-08-06
  */
-public interface ISysPermissionService extends IService<SysPermission> {
+public interface ISysPermissionService extends IService<SysPermissionEntity> {
 
 }

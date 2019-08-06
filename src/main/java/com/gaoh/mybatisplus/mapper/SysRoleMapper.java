@@ -1,7 +1,7 @@
 package com.gaoh.mybatisplus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.gaoh.test.entity.SysRole;
+import com.gaoh.mybatisplus.entity.SysRoleEntity;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.gaoh.test.entity.SysRole;
  * @author gaoh
  * @since 2019-08-06
  */
-public interface SysRoleMapper extends BaseMapper<SysRole> {
+public interface SysRoleMapper extends BaseMapper<SysRoleEntity> {
 
 }

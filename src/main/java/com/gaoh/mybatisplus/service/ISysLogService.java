@@ -1,7 +1,7 @@
 package com.gaoh.mybatisplus.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.gaoh.test.entity.SysLog;
+import com.gaoh.mybatisplus.entity.SysLogEntity;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.gaoh.test.entity.SysLog;
  * @author gaoh
  * @since 2019-08-06
  */
-public interface ISysLogService extends IService<SysLog> {
+public interface ISysLogService extends IService<SysLogEntity> {
 
 }

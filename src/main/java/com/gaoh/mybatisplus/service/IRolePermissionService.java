@@ -1,7 +1,7 @@
 package com.gaoh.mybatisplus.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.gaoh.test.entity.RolePermission;
+import com.gaoh.mybatisplus.entity.RolePermissionEntity;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.gaoh.test.entity.RolePermission;
  * @author gaoh
  * @since 2019-08-06
  */
-public interface IRolePermissionService extends IService<RolePermission> {
+public interface IRolePermissionService extends IService<RolePermissionEntity> {
 
 }

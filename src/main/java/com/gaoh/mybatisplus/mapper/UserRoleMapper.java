@@ -1,7 +1,7 @@
 package com.gaoh.mybatisplus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.gaoh.test.entity.UserRole;
+import com.gaoh.mybatisplus.entity.UserRoleEntity;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.gaoh.test.entity.UserRole;
  * @author gaoh
  * @since 2019-08-06
  */
-public interface UserRoleMapper extends BaseMapper<UserRole> {
+public interface UserRoleMapper extends BaseMapper<UserRoleEntity> {
 
 }

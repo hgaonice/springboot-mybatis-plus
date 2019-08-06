@@ -1,7 +1,7 @@
 package com.gaoh.mybatisplus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.gaoh.test.entity.SysPermission;
+import com.gaoh.mybatisplus.entity.SysPermissionEntity;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.gaoh.test.entity.SysPermission;
  * @author gaoh
  * @since 2019-08-06
  */
-public interface SysPermissionMapper extends BaseMapper<SysPermission> {
+public interface SysPermissionMapper extends BaseMapper<SysPermissionEntity> {
 
 }
