@@ -16,9 +16,10 @@ spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
 #    url: jdbc:mysql://94.191.23.136:3307/ourlove?useUnicode=true&characterEncoding=UTF-8&useSSL=true
-    url: jdbc:mysql://94.191.23.136:3307/ourlove?characterEncoding=utf-8
+#    url: jdbc:mysql://94.191.23.136:3307/ourlove?characterEncoding=utf-8
+    url: jdbc:mysql://127.0.0.1:3306/ourlove?characterEncoding=utf-8
     username: root
-    password: 123456
+    password: root
     druid:
       #初始化连接数量，最大最小连接数
       initialSize: 5

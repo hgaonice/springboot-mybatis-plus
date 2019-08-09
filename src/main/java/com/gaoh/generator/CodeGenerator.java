@@ -56,7 +56,8 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/ourlove?useUnicode=true&useSSL=false&characterEncoding=utf8");
+//        dsc.setUrl("jdbc:mysql://localhost:3306/ourlove?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://10.10.101.237/assets_management?characterEncoding=utf-8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
@@ -66,7 +67,8 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.gaoh");
+//        pc.setParent("com.gaoh");
+        pc.setParent("com.zccs.assets_management");
         mpg.setPackageInfo(pc);
 
         // 自定义配置

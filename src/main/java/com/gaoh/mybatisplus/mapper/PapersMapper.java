@@ -23,4 +23,5 @@ public interface PapersMapper extends BaseMapper<PapersEntity> {
      * @return
      */
     List<Map<String, Object>> selectListBySQL(String sql);
+
 }

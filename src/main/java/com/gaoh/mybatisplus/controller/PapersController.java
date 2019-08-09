@@ -2,6 +2,8 @@ package com.gaoh.mybatisplus.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.gaoh.mybatisplus.annotation.ControllerLog;
+import com.gaoh.mybatisplus.annotation.OperationType;
 import com.gaoh.mybatisplus.entity.PapersEntity;
 import com.gaoh.mybatisplus.service.impl.PapersServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,7 @@ public class PapersController {
     private PapersServiceImpl papersService;
 
     @RequestMapping("/getById")
+    @ControllerLog(memo = "根据Id查询",type = OperationType.QUERY)
     public PapersEntity getById(@RequestBody PapersEntity papers) {
         PapersEntity papersEntity = papersService.getById(papers);
         redisTemplate.opsForValue().set("papers", JSONObject.toJSONString(papersEntity));
