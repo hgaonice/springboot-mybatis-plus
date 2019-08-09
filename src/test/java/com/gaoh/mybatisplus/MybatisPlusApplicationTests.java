@@ -28,7 +28,6 @@ public class MybatisPlusApplicationTests {
         ((QueryWrapper<PapersEntity>) queryWrapper).eq("ids", 38);
         papersEntity = papersMapper.selectOne(queryWrapper);
         log.info(JSONObject.toJSONString(papersEntity));
-
     }
 
 }

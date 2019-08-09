@@ -953,3 +953,89 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 2019-08-09 15:40:07.223 DEBUG 8196 --- [http-nio-9090-exec-8] c.g.m.mapper.PapersMapper.selectById     : ==>  Preparing: SELECT ids,objCode,objType,filename,filetype,filesize,fileurl,filepath,suffixname,createDate,reserve1,reserve2,reserve3 FROM papers WHERE ids=? 
 2019-08-09 15:40:07.230 DEBUG 8196 --- [http-nio-9090-exec-8] c.g.m.mapper.PapersMapper.selectById     : ==> Parameters: 46(Integer)
 2019-08-09 15:40:07.250 DEBUG 8196 --- [http-nio-9090-exec-8] c.g.m.mapper.PapersMapper.selectById     : <==      Total: 1
+2019-08-09 15:41:45.838  INFO 8196 --- [Thread-30] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-08-09 15:41:46.969  INFO 8196 --- [Thread-30] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2019-08-09 15:41:47.393  INFO 8196 --- [restartedMain] c.g.mybatisplus.MybatisPlusApplication   : Starting MybatisPlusApplication on Developer08 with PID 8196 (E:\prolog\SpringBoot-Mybatis-Plus\target\classes started by Admin in E:\prolog\SpringBoot-Mybatis-Plus)
+2019-08-09 15:41:47.394  INFO 8196 --- [restartedMain] c.g.mybatisplus.MybatisPlusApplication   : No active profile set, falling back to default profiles: default
+2019-08-09 15:41:47.767  WARN 8196 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.gaoh.mybatisplus]' package. Please check your configuration.
+2019-08-09 15:41:47.778  INFO 8196 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-08-09 15:41:47.779  INFO 8196 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-09 15:41:47.787  INFO 8196 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2019-08-09 15:41:47.818  INFO 8196 --- [restartedMain] o.s.c.a.ConfigurationClassPostProcessor  : Cannot enhance @Configuration bean definition 'mybatisPlusConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2019-08-09 15:41:47.842  INFO 8196 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$baca08b1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-09 15:41:48.127  INFO 8196 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2019-08-09 15:41:48.128  INFO 8196 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-09 15:41:48.128  INFO 8196 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-09 15:41:48.129  INFO 8196 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
+2019-08-09 15:41:48.129  INFO 8196 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2019-08-09 15:41:48.129  INFO 8196 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-08-09 15:41:48.129  INFO 8196 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-08-09 15:41:48.129  INFO 8196 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2019-08-09 15:41:48.141  INFO 8196 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-09 15:41:48.141  INFO 8196 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 744 ms
+2019-08-09 15:41:48.284  INFO 8196 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-08-09 15:41:49.323  INFO 8196 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3} inited
+2019-08-09 15:41:51.019  INFO 8196 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-09 15:41:52.020  INFO 8196 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-08-09 15:41:52.045  INFO 8196 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2019-08-09 15:41:52.045  INFO 8196 --- [restartedMain] c.g.mybatisplus.MybatisPlusApplication   : Started MybatisPlusApplication in 4.684 seconds (JVM running for 300.553)
+2019-08-09 15:41:52.047  INFO 8196 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-08-09 16:00:24.023  INFO 8196 --- [Thread-36] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-08-09 16:00:24.042  INFO 8196 --- [Thread-36] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3} closed
+2019-08-09 16:00:24.478  INFO 8196 --- [restartedMain] c.g.mybatisplus.MybatisPlusApplication   : Starting MybatisPlusApplication on Developer08 with PID 8196 (E:\prolog\SpringBoot-Mybatis-Plus\target\classes started by Admin in E:\prolog\SpringBoot-Mybatis-Plus)
+2019-08-09 16:00:24.479  INFO 8196 --- [restartedMain] c.g.mybatisplus.MybatisPlusApplication   : No active profile set, falling back to default profiles: default
+2019-08-09 16:00:24.832  WARN 8196 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.gaoh.mybatisplus]' package. Please check your configuration.
+2019-08-09 16:00:24.840  INFO 8196 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-08-09 16:00:24.840  INFO 8196 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-09 16:00:24.847  INFO 8196 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-08-09 16:00:24.872  INFO 8196 --- [restartedMain] o.s.c.a.ConfigurationClassPostProcessor  : Cannot enhance @Configuration bean definition 'mybatisPlusConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2019-08-09 16:00:24.892  INFO 8196 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$baca08b1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-09 16:00:24.960  INFO 8196 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2019-08-09 16:00:24.960  INFO 8196 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-09 16:00:24.961  INFO 8196 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-09 16:00:24.961  INFO 8196 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
+2019-08-09 16:00:24.961  INFO 8196 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2019-08-09 16:00:24.961  INFO 8196 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-08-09 16:00:24.961  INFO 8196 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-08-09 16:00:24.962  INFO 8196 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2019-08-09 16:00:24.974  INFO 8196 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-09 16:00:24.974  INFO 8196 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 493 ms
+2019-08-09 16:00:25.014  INFO 8196 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-08-09 16:00:25.157  INFO 8196 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-4} inited
+2019-08-09 16:00:25.690  INFO 8196 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-09 16:00:25.782  INFO 8196 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-08-09 16:00:25.822  INFO 8196 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2019-08-09 16:00:25.823  INFO 8196 --- [restartedMain] c.g.mybatisplus.MybatisPlusApplication   : Started MybatisPlusApplication in 1.393 seconds (JVM running for 1414.33)
+2019-08-09 16:00:25.825  INFO 8196 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-08-09 16:00:32.024  INFO 8196 --- [http-nio-9090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-09 16:00:32.025  INFO 8196 --- [http-nio-9090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-09 16:00:32.029  INFO 8196 --- [http-nio-9090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2019-08-09 16:00:32.047 DEBUG 8196 --- [http-nio-9090-exec-2] c.g.m.mapper.PapersMapper.selectById     : ==>  Preparing: SELECT ids,objCode,objType,filename,filetype,filesize,fileurl,filepath,suffixname,createDate,reserve1,reserve2,reserve3 FROM papers WHERE ids=? 
+2019-08-09 16:00:32.052 DEBUG 8196 --- [http-nio-9090-exec-2] c.g.m.mapper.PapersMapper.selectById     : ==> Parameters: 46(Integer)
+2019-08-09 16:00:32.055 DEBUG 8196 --- [http-nio-9090-exec-2] c.g.m.mapper.PapersMapper.selectById     : <==      Total: 1
+2019-08-09 16:00:51.973  INFO 16448 --- [restartedMain] c.g.mybatisplus.MybatisPlusApplication   : Starting MybatisPlusApplication on Developer08 with PID 16448 (E:\prolog\SpringBoot-Mybatis-Plus\target\classes started by Admin in E:\prolog\SpringBoot-Mybatis-Plus)
+2019-08-09 16:00:51.975  INFO 16448 --- [restartedMain] c.g.mybatisplus.MybatisPlusApplication   : No active profile set, falling back to default profiles: default
+2019-08-09 16:00:52.013  INFO 16448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-08-09 16:00:52.013  INFO 16448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-08-09 16:00:52.659  WARN 16448 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.gaoh.mybatisplus]' package. Please check your configuration.
+2019-08-09 16:00:52.716  INFO 16448 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-08-09 16:00:52.718  INFO 16448 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-09 16:00:52.737  INFO 16448 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2019-08-09 16:00:52.819  INFO 16448 --- [restartedMain] o.s.c.a.ConfigurationClassPostProcessor  : Cannot enhance @Configuration bean definition 'mybatisPlusConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2019-08-09 16:00:53.015  INFO 16448 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a99366a1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-09 16:00:53.703  INFO 16448 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2019-08-09 16:00:53.720  INFO 16448 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-09 16:00:53.720  INFO 16448 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-09 16:00:53.725  INFO 16448 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
+2019-08-09 16:00:53.725  INFO 16448 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2019-08-09 16:00:53.725  INFO 16448 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-08-09 16:00:53.726  INFO 16448 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-08-09 16:00:54.779  INFO 16448 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2019-08-09 16:00:54.892  INFO 16448 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-09 16:00:54.892  INFO 16448 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2879 ms
+2019-08-09 16:00:55.170  INFO 16448 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-08-09 16:00:56.280  INFO 16448 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-08-09 16:00:58.355  INFO 16448 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-09 16:00:59.675  INFO 16448 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-08-09 16:00:59.726  INFO 16448 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2019-08-09 16:00:59.728  INFO 16448 --- [restartedMain] c.g.mybatisplus.MybatisPlusApplication   : Started MybatisPlusApplication in 8.169 seconds (JVM running for 8.981)
