@@ -3,6 +3,7 @@ package com.gaoh.mybatisplus.utils;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
+import com.gaoh.mybatisplus.entity.SysJobModel;
 import com.gaoh.mybatisplus.exception.BusinessException;
 import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeUtility;
 import net.sf.json.util.JSONTokener;
@@ -15,7 +16,9 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Method;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
@@ -531,6 +534,144 @@ public class BaseUtils {
             IP = "127.0.0.1";
         }
         return IP;
+    }
+
+    /**
+     * 反射执行job中的方法（springId(即spring配置的bean id)优先考虑）
+     * @param job
+     */
+    public static void invokJobMethod(SysJobModel job) {
+        Object object = null;
+        Class clazz = null;
+
+        if (StringUtils.isNotBlank(job.getSpringId())) {
+            object = SpringBeanFactoryUtils.getApplicationContext().getBean(job.getSpringId());
+        } else if (StringUtils.isNotBlank(job.getClassName())) {
+            try {
+                clazz = Class.forName(job.getClassName());
+                object = clazz.newInstance();
+            } catch (Exception e) {
+                BaseUtils.loggerError(e);
+            }
+        }
+
+        if (object == null) {
+            BaseUtils.loggerDebug("定时任务[" + job.getName() + "]启动失败，请检查配置！");
+            return;
+        }
+
+        clazz = object.getClass();
+        Method method = null;
+        try {
+            //通过反射得到execute方法
+            method = clazz.getDeclaredMethod("execute");
+        } catch (NoSuchMethodException e) {
+            BaseUtils.loggerDebug("定时任务["+job.getName()+"]中没有找到[execute()]方法，请检查！");
+        } catch (SecurityException e) {
+            BaseUtils.loggerError(e);
+        }
+
+        if (method != null) {
+            try {
+                method.invoke(object);
+                // 判断是否输出定时任务执行信息
+                if ("1".equals(getConfig().get("JOB_OUTPUT_INFO"))) {
+                    BaseUtils.loggerDebug("定时任务[" + job.getName() + "]启动成功！");
+                }
+            } catch (Exception e) {
+                BaseUtils.loggerError(e);
+            }
+        }
+    }
+
+
+    private static Map<String, Object> config;
+
+    /**
+     * 加载config.properties 文件
+     * @return
+     */
+    public static Map<String, Object> getConfig() {
+        if (config == null) {
+            try {
+                config = readProperties("config.properties");
+                if(config != null){
+                    BaseUtils.loggerDebug("加载[config.properties]成功！");
+                }else{
+                    throw new BusinessException("加载[config.properties]失败！");
+                }
+            } catch (Exception e) {
+                BaseUtils.loggerError(e);
+            }
+        }
+        return config;
+    }
+
+
+
+    /**
+     * 读取并解析配置文件
+     * @param fileName classpath下文件名
+     * @return
+     * @throws Exception
+     */
+    public static Map<String, Object> readProperties(String fileName) throws Exception {
+        Map<String, Object> reslutMap = new HashMap<String, Object>();
+        FileInputStream in = null;
+
+        String absolutePath = BaseUtils.getAbsoluteClasspath() + File.separator + fileName.trim();
+        in = new FileInputStream(absolutePath);
+        Properties properties = new Properties(); //实例化
+        properties.load(in); //从filePath得到键值对
+
+        Enumeration<?> enmObject = properties.keys(); //得到所有的主键信息（这里的主键信息主要是简化的主键，也是信息的关键）
+
+        while (enmObject.hasMoreElements()) { //对每一个主键信息进行检索处理，跟传入的返回值信息是否有相同的地方（如果有相同的地方，取出主键信息的属性，传回给返回信息）
+            String curKey = ((String) enmObject.nextElement()).trim();
+            if(curKey.contains("#")){ // 带#号的key为注释内容，自动忽略
+                continue;
+            }
+            String curMessage = new String(properties.getProperty(curKey).getBytes("ISO-8859-1"), "UTF-8").trim();
+            reslutMap.put(BaseUtils.encodeUTF8(curKey), BaseUtils.encodeUTF8(curMessage));
+        }
+
+        in.close();
+
+        return reslutMap;
+    }
+
+    /**
+     * 获取classpath绝对路径
+     * @return
+     */
+    public static String getAbsoluteClasspath() {
+        String absolutePath = Thread.currentThread().getContextClassLoader().getResource("").toString(); //tomcat绝对路径
+        absolutePath = absolutePath.replaceAll("file:/", "");
+        // https://www.cnblogs.com/zhengxl5566/p/10783422.html
+        absolutePath = absolutePath.replaceAll("%20", " ");
+        absolutePath = File.separator + absolutePath.trim();
+        BaseUtils.loggerDebug("classpath:" + absolutePath);
+        return absolutePath;
+    }
+
+    /**
+     * 按照参数format的格式，日期转字符串。format如:yyyy-MM-dd HH:mm:ss
+     * @param date
+     * @param format
+     * @return
+     */
+    public static String date2Str(Date date, String format) {
+        if (date != null) {
+            SimpleDateFormat sdf = null;
+            if(format != null){
+                sdf = new SimpleDateFormat(format);
+            }else{
+                sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            }
+            return sdf.format(date);
+        } else {
+            return "";
+        }
     }
 
 }

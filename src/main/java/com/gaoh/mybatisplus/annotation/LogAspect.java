@@ -70,6 +70,10 @@ public class LogAspect implements Ordered {
         //参数类型
         Parameter[] parameters = method.getParameters();*/
 
+        //切入的目标类
+        Object target = point.getTarget();
+        String[] url = target.getClass().getAnnotation(RequestMapping.class).value();
+
         //获取相关描述
         String memo = methodSignature.getMethod().getAnnotation(ControllerLog.class).memo();
         log.info("相关描述:" + memo);
@@ -78,7 +82,7 @@ public class LogAspect implements Ordered {
         log.info("操作类型:"+type.getDescription());
         //请求的Url
         String[] val = methodSignature.getMethod().getAnnotation(RequestMapping.class).value();
-        log.info("请求路径:"+val[0]);
+        log.info("请求路径:" + url[0] + val[0]);
 
         //************************请求参数打印****************************
         //得到参数名称
