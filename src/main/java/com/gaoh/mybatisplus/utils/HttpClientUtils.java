@@ -96,13 +96,7 @@ public class HttpClientUtils {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                // 释放资源
-                httpClient.close();
-                response.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            close(httpClient, response);
         }
         return "";
     }
@@ -150,17 +144,7 @@ public class HttpClientUtils {
         } catch ( Exception e) {
             e.printStackTrace();
         }   finally {
-            try {
-                // 释放资源
-                if (httpClient != null) {
-                    httpClient.close();
-                }
-                if (response != null) {
-                    response.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            close(httpClient, response);
         }
         return "";
     }
@@ -239,18 +223,27 @@ public class HttpClientUtils {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                // 释放资源
-                if (httpClient != null) {
-                    httpClient.close();
-                }
-                if (response != null) {
-                    response.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            close(httpClient, response);
         }
         return "";
+    }
+
+    /**
+     * 关闭资源
+     * @param httpClient CloseableHttpClient
+     * @param response CloseableHttpResponse
+     */
+    private static void close(CloseableHttpClient httpClient, CloseableHttpResponse response) {
+        try {
+            // 释放资源
+            if (httpClient != null) {
+                httpClient.close();
+            }
+            if (response != null) {
+                response.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
