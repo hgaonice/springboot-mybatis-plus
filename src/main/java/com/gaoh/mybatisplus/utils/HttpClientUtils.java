@@ -3,6 +3,7 @@ package com.gaoh.mybatisplus.utils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.*;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -40,6 +41,12 @@ public class HttpClientUtils {
      * @return 返回的字符串
      */
     public static String httpClient(String url, Map<String, String> paramMap, String requestType) {
+        if (StringUtils.isBlank(url)) {
+            return "url不能为空!";
+        }
+        if (StringUtils.isBlank(requestType)) {
+            return "请求类型不能为空!";
+        }
         // 获得Http客户端(可以理解为:你得先有一个浏览器;注意:实际上HttpClient与浏览器是不一样的)
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
         // 参数
@@ -109,7 +116,13 @@ public class HttpClientUtils {
      * @param object  实体对象
      * @return 请求的数据
      */
-    public static String postHttpClient(String url,Object object) {
+    public static String postHttpClientEntity(String url,Object object) {
+        if (StringUtils.isBlank(url)) {
+            return "url不能为空!";
+        }
+        if (object == null) {
+            return "实体对象不能为空!";
+        }
         // 获得Http客户端(可以理解为:你得先有一个浏览器;注意:实际上HttpClient与浏览器是不一样的)
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
@@ -117,9 +130,7 @@ public class HttpClientUtils {
         HttpPost httpPost = new HttpPost(url);
         // 我这里利用阿里的fastjson，将Object转换为json字符串;
         // (需要导入com.alibaba.fastjson.JSON包)
-        String jsonString = JSON.toJSONString(object);
-
-        StringEntity entity = new StringEntity(jsonString, "UTF-8");
+        StringEntity entity = new StringEntity(JSON.toJSONString(object), "UTF-8");
         // post请求是将参数放在请求体里面传过去的;这里将entity放入post请求体中
         httpPost.setEntity(entity);
         httpPost.setHeader("Content-Type", "application/json;charset=utf8");
@@ -161,10 +172,17 @@ public class HttpClientUtils {
      * @param paramMap  请求的参数
      * @return  返回请求的对象
      */
-    public static String postClientParam(String httpType, String host, Integer port, String path,
+    public static String postClientEntityParam(String httpType, String host, Integer port, String path,
                                 Object object,
                                 Map<String, String> paramMap
     ) {
+        if (StringUtils.isBlank(httpType) && StringUtils.isBlank(host)  && StringUtils.isBlank(path)  && port == null) {
+            return "请求的路径信息不能为空!";
+        }
+
+        if (object == null) {
+            return "实体对象不能为空!";
+        }
         // 获得Http客户端(可以理解为:你得先有一个浏览器;注意:实际上HttpClient与浏览器是不一样的)
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
